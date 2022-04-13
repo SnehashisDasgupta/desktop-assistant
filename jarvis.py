@@ -1,7 +1,9 @@
 
+from unittest import result
 import pyttsx3
 import speech_recognition as sr
 import datetime
+import wikipedia
 
 engine = pyttsx3.init('sapi5')
 voices = engine.getProperty('voices')
@@ -40,9 +42,20 @@ def takeCommand():
     except Exception as e:
         # print(e)
         print("Can't understand, please repeat boss")
+        speak("Can't understand, please repeat boss")
         return "None"
     return query
 
 if __name__ == "__main__":
     wishMe()
-    takeCommand()
+    while True:
+        query = takeCommand().lower()
+
+        #Logic for executing tasks based on query
+        if 'wikipedia' in query:
+            speak('Seaching Wikipedia...')
+            query = query.replace("wikipedia","")
+            result = wikipedia.summary(query, sentence = 2)
+            speak("According to Wikipedia")
+            print(result)
+            speak(result)
