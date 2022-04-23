@@ -75,31 +75,10 @@ if __name__ == "__main__":
         elif 'stack overflow' in query:
             webbrowser.open("stackoverflow.com")
 
-        elif 'open github' in query:
-            webbrowser.open("github.com/SnehashisDasgupta")
-
-        elif 'play music' in query:
-            music_dir = 'D:\\Project\\Spotify Clone\\songs'
-            songs = os.listdir(music_dir)
-            # print(songs)
-            os.startfile(os.path.join(music_dir,songs[random.randrange(1,10)]))
-
         elif 'the time' in query:
             strTime = datetime.datetime.now().strftime("%H:%M")
             print(strTime)
             speak(f"Boss, the time is {strTime}")
-
-        elif 'open vs code' in query:
-            VScodePath = "D:\\Microsoft VS Code\\Code.exe"
-            os.startfile(VScodePath)
-
-        elif 'open intellij' in query:
-            intellij = "C:\\Users\\SNEHASHISH\\Desktop\\intellij\\IntelliJ IDEA Community Edition 2021.2.3\\bin\\idea64.exe"
-            os.startfile(intellij)
-
-        elif 'open brave' in query:
-            brave ="C:\\Program Files\\BraveSoftware\\Brave-Browser\\Application\\brave.exe"
-            os.startfile(brave)
 
         elif 'stop jarvis' in query:
             check = False 
